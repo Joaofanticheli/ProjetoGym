@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GainYourMuscle</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="title">
+        <h1>
+            <a href="home.html">GainYourMuscle</a><br>
+            Melhore seu estilo de vida!
+        </h1>
+        <nav class="listpage">
+            <ul class="login hidden" id="login">
+                <li>
+                    <button class="listpage-btn" id="login-btn" type="button">
+                        Login
+                    </button>
+                </li>
+            </ul>
+            <ul class="logado hidden" id="logado">
+                    <li>
+                        <button class="listpage-btn" id="treino-btn" type="button">
+                            Treino
+                        </button>
+                    </li>
+                    <li>
+                        <button class="listpage-btn" id="mobilidade-btn" type="button">
+                            Mobilidade
+                        </button>
+                    </li>
+                    <li>
+                        <button class="listpage-btn" id="alimentacao-btn" type="button">
+                            Alimentação
+                        </button>
+                    </li>
+                    <li>
+                        <button class="listpage-btn" id="logout-btn" type="button">
+                            Logout
+                        </button>
+                    </li>
+            </ul>
+        </nav>  
+    </header>
+    <main>
+        <div> <!--forms-->
+        <form class="logBox hidden" id="logBox">
+                <div class="logBox-container">
+                    <div class="logBox-text">
+                        <button id="logEnter" type="submit" class="logBox-btn">
+                            Entrar
+                        </button>
+                        <button  id="logCloseBtn" class="logBox-close" type="button">
+                            X
+                        </button>
+                    </div>
+                    <div>
+                        <div class="logBox-label">
+                            <label for="email-login">Email:</label>
+                            <input type="text" placeholder="email" class="input-size" name="email-login" id="email-login"><br>
+                        </div>
+                        <div class="logBox-label">
+                            <label for="senha-login">Senha:</label>
+                            <input type="password" placeholder="senha" class="input-size" name="senha-login" id="senha-login">
+                        </div>
+                    </div>
+                    <div class="logBox-text">
+                        <button id="logBox-criar-btn" type="button" class="logBox-btn">
+                            Criar conta
+                        </button>
+                        <button id="logBox-esqueceu-btn" type="button" class="logBox-btn">
+                            Esqueceu a senha
+                        </button>
+                    </div>
+                </div>
+        </form>
+        <form class="criar hidden" id="criar">
+            <div class="criar-container">
+                <div class="criar-text">
+                    <fieldset class="criar-fieldset">
+                        <legend>Informações Pessoais</legend>
+                        <div class="criar-label">
+                            <label for="nome-criar">Nome:</label>
+                            <input type="text" placeholder="nome" id="nome" name="nome-criar">
+                        </div>
+                        <div class="criar-label">
+                            <label for="idade-criar">idade:</label>
+                            <input type="number" placeholder="xx anos" id="age" name="idade-criar">
+                        </div>
+                        <div class="criar-label">
+                            <label for="peso-criar">Peso:</label>
+                            <input type="number" placeholder="xx Kg" id="weight" name="peso-criar">
+                        </div>
+                        <div class="criar-label">
+                            <label for="altura-criar">Altura:</label>
+                            <input type="number" placeholder="xxx CM" id="size" name="altura-criar">
+                        </div>
+                        <div class="criar-label">
+                            <label for="freq-criar">Frequencia:</label>
+                            <input type="number" placeholder="quantas vezes pratica atividade fisica" id="freq" name="freq-criar">
+                        </div>
+                        <div class="criar-label">
+                            <label for="sexo-criar">Sexo biológico:</label>
+                            <select id="sexo" name="sexo-criar">
+                                <option value=""disabled selected hidden >Sexo biológico</option>
+                                <option value="masculino" >masculino</option>
+                                <option value="feminino" >feminino</option>
+                            </select><br>
+                        </div>
+                    </fieldset>
+                    <fieldset class="criar-fieldset">
+                        <legend>Seu login</legend>
+                        <div class="criar-label">
+                            <label for="email-criar">Email:</label>
+                            <input type="email" placeholder="email" id="email" name="email-criar">
+                        </div>
+                        <div class="criar-label">
+                            <label for="password-criar">Senha:</label>
+                            <input type="password" placeholder="senha" id="password" name="senha-criar">
+                        </div>
+                        <div class="criar-label">
+                            <label for="confirma-criar">Confirme:</label>
+                            <input type="password" placeholder="confirma senha" id="confirma" name="confirma-criar">
+                        </div>
+                    </fieldset>
+                </div>
+                <div>
+                    <button type="submit" id="submit" class="criar-btn">
+                        Enviar
+                    </button>
+                </div>
+            </div>
+        </form>
+        <form class="esqueceu hidden" id="esqueceu">
+            <div class="esqueceu-container">
+                <div class="esqueceu-label">
+                    <label for="nome-esqueceu">Nome:</label>
+                    <input type="text" placeholder="nome" id="nome-esqueceu" name="nome-esqueceu">
+                </div>
+                <div class="esqueceu-label">
+                    <label for="email-esqueceu">Email:</label>
+                    <input type="email" placeholder="email" id="email-esqueceu" name="email-esqueceu">  
+                </div>
+                <button id="recover" type="submit" class="esqueceu-btn">
+                    Recuperar
+                </button>
+            </div>
+        </form>  
+        </div>
+        <div id="toast-container"></div>
+        <div class="main-container" id="main"> <!--ready-->
+            <div class="main-ready" id="question">
+                <div class="main-question">
+                    <div>Está pronto</div>
+                    <div>para mudar seu </div>
+                    <div>estilo  de vida?</div> 
+                </div>
+                <div class="main-awnser">
+                    <button id="awnser-btn" type="button" class="awnser-btn">
+                        Sim
+                    </button>
+                    <a  href="https://www.google.com.br" class="awnser-no">
+                        Não
+                    </a>
+                </div>
+            </div>
+            <div class="main-motivationText hidden" id="text-motivation">
+                Ter um estilo de vida mais fitness traz benefícios que vão muito 
+                além da estética. Praticar atividades físicas regularmente fortalece 
+                o coração, os músculos e os ossos, além de ajudar a prevenir doenças 
+                como diabetes, hipertensão e obesidade.Quem adota hábitos saudáveis 
+                percebe também um aumento significativo de energia e disposição, 
+                enfrentando o dia a dia com menos cansaço e mais vitalidade. Não estamos
+                falando de ter uma vida regrada onde você nao vai conseguir sentir prazer
+                em um alimento igual um atleta de bodybuilder ou deixar de comer algo 
+                porque nao qer engordar! e sim queremos trazer essa educação alimentar 
+                junto com a musculação e mobilidade para vc ter uma vida com mais saudevel,
+                menos dor e aproveitando tudo que há de bom na vida!
+            </div>
+            <div class="main-image">
+                imagem de antes e depois
+            </div>
+        </div>
+        <div id="treino" class="treino hidden"><!--Treino-->
+            treino
+        </div>
+        <div id="mobilidade" class="mobilidade hidden"><!--mobilidade-->
+            mobilidade
+        </div>
+        <div id="alimentacao" class="alimentacao hidden"><!--alimentação-->
+            alimentacao
+        </div>
+    </main>
+    <footer>
+        texto futuro
+    </footer>
