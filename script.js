@@ -22,7 +22,7 @@ const navBarMenus= [loginMenu, logadoMenu];
 const mainContentText = [motivation, question];
 function changeUI(pageToShow, pageToHide){
     pageToHide.forEach(p => hideElements([p]))
-    showElements([pageToShow])
+    if (pageToShow !== null){showElements([pageToShow])}
 }
 const toastContainer = document.getElementById("toast-container");
 function notifyUser(container, mensagem){
@@ -84,7 +84,7 @@ function openLogbox(){
     changeUI(logBox, boxForms) 
 }
 function closeLogBox(){
-    changeUI([], boxForms)
+    changeUI(null, boxForms)
 }
 // logBox entrar
 function getLoginRegistered(){
@@ -121,8 +121,7 @@ function getLoginsValue(usuarioLogin, listaDeLogins){
 }
 function goodSession(loginAutenticado){
     if (loginAutenticado)
-        {
-            changeUI([], boxForms);
+        {   
             alertRightLogin();
             orchestratorNavBarMenu();
         } 
@@ -153,11 +152,11 @@ function changeNavBarMenu(){
         }
     else
         {
-            changeToLogado()
+            changeToLogout()
         }
 }
 function changeToLogado(){
-    changeUI([], boxForms)
+    changeUI(null, boxForms)
     changeUI(logadoMenu, navBarMenus)
 }
 function changeToLogout(){
@@ -178,7 +177,7 @@ function showCriarBox(){
         }
     else
         {
-            changeUI([], boxForms)
+            changeUI(null, boxForms)
         }
 }
 // logBox esqueceu
@@ -196,7 +195,7 @@ function showEsqueceuBox(){
         }
     else
         {
-            changeUI([], boxForms)
+            changeUI(null, boxForms)
         }
 }
 // criar a conta
@@ -239,13 +238,13 @@ function confirm(usuarioCadastro){
 }
 function toggleMenuScreen(usuarioCadastro){
     changeUI(logadoMenu, navBarMenus)
-    changeUI([], boxForms)
+    changeUI(null, boxForms)
     calculateTBM(usuarioCadastro)          
 }        
 function signUp(usuarioCadastro, tbm){
-    let listaUsuarios = JSON.parse(localStorage.getItem("listaUsuarios")) || []
-    pushUserInfos(usuarioCadastro, tbm, listaUsuarios)
-    localStorage.setItem("listaUsuarios", JSON.stringify(listaUsuarios)
+    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
+    pushUserInfos(usuarioCadastro, tbm, usuarios)
+    localStorage.setItem("usuarios", JSON.stringify(usuarios)
     )
 }
 function geResultsOfInputs(usuarioCadastro){
@@ -279,8 +278,8 @@ function calculateTBM(usuarioCadastro){
 function tellTBM(usuarioCadastro, tbm){
     notifyUser(toastContainer, "Olá "+ usuarioCadastro.nome +" o seu TBM é "+ tbm)
 }
-function pushUserInfos(usuarioCadastro, tbm, listaUsuarios){
-listaUsuarios.push({
+function pushUserInfos(usuarioCadastro, tbm, usuarios){
+usuarios.push({
         nome: usuarioCadastro.nome,
         email: usuarioCadastro.email,
         senha: usuarioCadastro.senha,

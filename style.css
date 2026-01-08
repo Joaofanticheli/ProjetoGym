@@ -176,7 +176,6 @@ body{
     padding-top: 10px;
     width: 100%;
 }
-
 /*main*/
 .main-container{
     display: flex;
@@ -224,17 +223,51 @@ body{
     display: flex;
     width: 50%;
 }
-
 /* content page*/
+/*treino*/
 .treino{
     display: flex;
 }
+.form-treino{
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    background-color: #111111;
+    border: 3px solid #6e643c;
+    border-radius: 25%;
+}
+.fieldset-form-treino{
+    display: flex;
+    flex-direction: column;
+    border: none;
+    padding: 1rem;
+    color: #c9b977;
+    font-size: 2rem;
+}
+.label-form-treino{
+    font-size: 1rem;
+    padding-bottom: 5px;
+}
+.select-form-treino{
+    width: 50%;
+    margin: .25rem;
+}
+.btn-form-treino{
+    background: none;
+    color: #c9b977;
+    font-size: 2rem;
+    margin: auto;
+    padding: .25rem;
+}
+/*mobilidade*/
 .mobilidade{
     display: flex;
 }
+/*alimentação*/
 .alimentacao{
     display: flex;
 }
+/*classes universais*/
 .hidden{
     display: none;
 }
